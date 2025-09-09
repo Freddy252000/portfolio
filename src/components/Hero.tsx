@@ -116,14 +116,16 @@ const Hero: React.FC = () => {
               <span>View My Work</span>
             </motion.button>
 
-            <motion.button
+            <motion.a
+              href="/Freddy.pdf"
+              download="Freddy_Vincent_CV.pdf"
               className="btn-secondary flex items-center space-x-2 px-8 py-4 text-lg"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
               <Download size={20} />
               <span>Download CV</span>
-            </motion.button>
+            </motion.a>
           </motion.div>
 
           {/* Social Links */}
