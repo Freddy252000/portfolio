@@ -55,7 +55,7 @@ const Projects: React.FC = () => {
       imageUrl:
         "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=600&h=400&fit=crop",
       demoUrl: undefined,
-      githubUrl: "https://github.com/Freddy252000",
+      githubUrl: "https://github.com/Freddy252000/GymApp",
       featured: true,
       category: "mobile",
     },
@@ -75,7 +75,7 @@ const Projects: React.FC = () => {
       imageUrl:
         "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=600&h=400&fit=crop",
       demoUrl: undefined,
-      githubUrl: "https://github.com/Freddy252000",
+      githubUrl: "https://github.com/Freddy252000/ELearnApp",
       featured: true,
       category: "mobile",
     },
@@ -95,7 +95,7 @@ const Projects: React.FC = () => {
       imageUrl:
         "https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?w=600&h=400&fit=crop",
       demoUrl: undefined,
-      githubUrl: "https://github.com/Freddy252000",
+      githubUrl: "https://github.com/Freddy252000/foodordershop",
       featured: true,
       category: "mobile",
     },
@@ -137,7 +137,7 @@ const Projects: React.FC = () => {
       imageUrl:
         "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=600&h=400&fit=crop",
       demoUrl: undefined,
-      githubUrl: "https://github.com/Freddy252000",
+      githubUrl: "https://github.com/Freddy252000/Task-Management-System",
       featured: false,
       category: "web",
     },
