@@ -5,7 +5,7 @@ import { Code, Palette, Database, Globe } from "lucide-react";
 interface Skill {
   name: string;
   level: number;
-  category: "frontend" | "backend" | "tools" | "other";
+  category: "frontend" | "backend" | "tools" | "design";
 }
 
 const About: React.FC = () => {
@@ -14,15 +14,26 @@ const About: React.FC = () => {
     { name: "React", level: 90, category: "frontend" },
     { name: "TypeScript", level: 90, category: "frontend" },
     { name: "JavaScript", level: 95, category: "frontend" },
-    { name: "Node.js", level: 85, category: "backend" },
-    { name: "Java", level: 80, category: "backend" },
-    { name: "Spring Boot", level: 75, category: "backend" },
-    { name: "Azure", level: 70, category: "backend" },
-    { name: "PostgreSQL", level: 75, category: "backend" },
-    { name: "MongoDB", level: 70, category: "backend" },
-    { name: "End-to-End Encryption", level: 85, category: "other" },
+    { name: "HTML/CSS", level: 85, category: "frontend" },
+    { name: "Node.js", level: 60, category: "backend" },
+    { name: "PostgreSQL", level: 60, category: "backend" },
+    { name: "Python", level: 65, category: "backend" },
+    { name: "Figma", level: 80, category: "design" },
+    { name: "UI/UX Design", level: 75, category: "design" },
+    { name: "Mobile App Design", level: 80, category: "design" },
+    { name: "Secure Communication", level: 70, category: "backend" },
+    { name: "End-to-End Encryption", level: 70, category: "backend" },
+    { name: "Adobe XD", level: 75, category: "design" },
+    { name: "Responsive Design", level: 85, category: "design" },
     { name: "Git", level: 90, category: "tools" },
     { name: "Docker", level: 75, category: "tools" },
+    { name: "Firebase", level: 70, category: "tools" },
+    { name: "AWS", level: 65, category: "tools" },
+    { name: "Azure", level: 60, category: "tools" },
+    { name: "Linux", level: 80, category: "tools" },
+    { name: "VS Code", level: 90, category: "tools" },
+
+
   ];
 
   const skillCategories = [

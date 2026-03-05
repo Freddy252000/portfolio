@@ -184,44 +184,137 @@ const Projects: React.FC = () => {
       category: "web",
     },
     {
-      id: "9",
-      title: "Desktop File Manager",
-      description: "Cross-platform file management application",
+      id: "12",
+      title: "Social Media Dashboard",
+      description: "Analytics dashboard for social media management",
       longDescription:
-        "A modern desktop file manager built with Electron and React. Features include file operations, search functionality, multiple tabs, and cloud storage integration.",
+        "A comprehensive social media management dashboard that aggregates data from multiple platforms. Features include analytics visualization, post scheduling, engagement tracking, and performance metrics with beautiful charts and graphs.",
       technologies: [
-        "Electron",
         "React",
         "TypeScript",
-        "Node.js",
-        "File System API",
+        "Chart.js",
+        "D3.js",
+        "REST APIs",
+        "Tailwind CSS",
+        "Redux Toolkit",
       ],
       imageUrl:
-        "https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=600&h=400&fit=crop",
+        "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop",
+      demoUrl: undefined,
+      githubUrl: "https://github.com/Freddy252000",
+      featured: false,
+      category: "web",
+    },
+    {
+      id: "13",
+      title: "Expense Tracker Mobile App",
+      description: "Personal finance management mobile application",
+      longDescription:
+        "A comprehensive expense tracking mobile app built with React Native. Features include expense categorization, budget planning, financial reports, receipt scanning, multi-currency support, and data synchronization across devices.",
+      technologies: [
+        "React Native",
+        "TypeScript",
+        "SQLite",
+        "React Navigation",
+        "Chart.js",
+        "Camera API",
+        "AsyncStorage",
+      ],
+      imageUrl:
+        "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=600&h=400&fit=crop",
+      demoUrl: undefined,
+      githubUrl: "https://github.com/Freddy252000",
+      featured: false,
+      category: "mobile",
+    },
+    {
+      id: "14",
+      title: "Music Streaming Mobile App",
+      description: "Spotify-like music streaming application",
+      longDescription:
+        "A full-featured music streaming mobile application with playlist management, offline downloads, social features, and personalized recommendations. Built with React Native and integrated with music APIs.",
+      technologies: [
+        "React Native",
+        "TypeScript",
+        "Audio APIs",
+        "Redux",
+        "Firebase",
+        "Push Notifications",
+        "Spotify API",
+      ],
+      imageUrl:
+        "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=600&h=400&fit=crop",
+      demoUrl: undefined,
+      githubUrl: "https://github.com/Freddy252000",
+      featured: true,
+      category: "mobile",
+    },
+    {
+      id: "15",
+      title: "Video Conferencing Desktop App",
+      description: "Zoom-like video conferencing application",
+      longDescription:
+        "A professional video conferencing desktop application built with Electron. Features include HD video calls, screen sharing, chat messaging, recording capabilities, virtual backgrounds, and meeting scheduling.",
+      technologies: [
+        "Electron",
+        "WebRTC",
+        "React",
+        "TypeScript",
+        "Socket.io",
+        "Node.js",
+        "Media APIs",
+      ],
+      imageUrl:
+        "https://images.unsplash.com/photo-1587825140708-dfaf72ae4b04?w=600&h=400&fit=crop",
       demoUrl: undefined,
       githubUrl: "https://github.com/Freddy252000",
       featured: false,
       category: "desktop",
     },
+
     {
-      id: "10",
-      title: "Code Editor",
-      description: "Lightweight code editor with syntax highlighting",
+      id: "19",
+      title: "Travel Companion Mobile App",
+      description: "Complete travel planning and booking mobile application",
       longDescription:
-        "A desktop code editor built with Electron featuring syntax highlighting, file tree navigation, multiple themes, and plugin support for various programming languages.",
+        "A comprehensive travel companion app that helps users plan trips, book accommodations, discover local attractions, track expenses, and share travel experiences. Features offline maps, currency converter, and travel journal.",
       technologies: [
-        "Electron",
-        "React",
-        "Monaco Editor",
+        "React Native",
         "TypeScript",
-        "Node.js",
+        "Maps API",
+        "Payment Gateway",
+        "Firebase",
+        "Camera API",
+        "Geolocation",
       ],
       imageUrl:
-        "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=600&h=400&fit=crop",
+        "https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=600&h=400&fit=crop",
       demoUrl: undefined,
       githubUrl: "https://github.com/Freddy252000",
       featured: false,
-      category: "desktop",
+      category: "mobile",
+    },
+    {
+      id: "20",
+      title: "Meditation & Wellness App",
+      description: "Mental health and wellness mobile application",
+      longDescription:
+        "A mindfulness and wellness app featuring guided meditations, breathing exercises, mood tracking, sleep stories, and progress analytics. Built with React Native and includes biometric authentication and health kit integration.",
+      technologies: [
+        "React Native",
+        "TypeScript",
+        "Audio APIs",
+        "HealthKit",
+        "Biometric Auth",
+        "Push Notifications",
+        "Analytics",
+      ],
+      imageUrl:
+        "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&h=400&fit=crop",
+      demoUrl: undefined,
+      githubUrl: "https://github.com/Freddy252000",
+      featured: false,
+      category: "mobile",
     },
   ];
 
@@ -307,6 +400,253 @@ const Projects: React.FC = () => {
           </motion.div>
         </motion.div>
 
+        {/* Skills & Technologies Section */}
+        <motion.div
+          className="mb-16"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+        >
+          <h3 className="text-2xl font-bold text-secondary-900 dark:text-white mb-8 text-center">
+            Skills & Technologies
+          </h3>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {/* Frontend Technologies */}
+            <motion.div
+              className="bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-blue-900/20 dark:to-indigo-900/20 p-6 rounded-xl border border-blue-200 dark:border-blue-800"
+              whileHover={{ scale: 1.02, y: -5 }}
+              transition={{ duration: 0.3 }}
+            >
+              <div className="flex items-center mb-4">
+                <div className="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center mr-3">
+                  <span className="text-white font-bold text-lg">F</span>
+                </div>
+                <h4 className="text-lg font-semibold text-secondary-900 dark:text-white">
+                  Frontend
+                </h4>
+              </div>
+              <div className="flex flex-wrap gap-2">
+                {[
+                  "React",
+                  "React Native",
+                  "TypeScript",
+                  "JavaScript",
+                  "HTML5",
+                  "CSS3",
+                  "Tailwind CSS",
+                  "Material-UI",
+                  "Framer Motion",
+                ].map((tech) => (
+                  <motion.span
+                    key={tech}
+                    className="px-3 py-1 bg-blue-100 dark:bg-blue-900/50 text-blue-700 dark:text-blue-300 rounded-full text-sm font-medium"
+                    whileHover={{ scale: 1.05 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    {tech}
+                  </motion.span>
+                ))}
+              </div>
+            </motion.div>
+
+            {/* Backend Technologies */}
+            <motion.div
+              className="bg-gradient-to-br from-green-50 to-emerald-100 dark:from-green-900/20 dark:to-emerald-900/20 p-6 rounded-xl border border-green-200 dark:border-green-800"
+              whileHover={{ scale: 1.02, y: -5 }}
+              transition={{ duration: 0.3 }}
+            >
+              <div className="flex items-center mb-4">
+                <div className="w-10 h-10 bg-green-600 rounded-lg flex items-center justify-center mr-3">
+                  <span className="text-white font-bold text-lg">B</span>
+                </div>
+                <h4 className="text-lg font-semibold text-secondary-900 dark:text-white">
+                  Backend
+                </h4>
+              </div>
+              <div className="flex flex-wrap gap-2">
+                {[
+                  "Node.js",
+                  "Python",
+                  "PostgreSQL",
+                  "MongoDB",
+                ].map((tech) => (
+                  <motion.span
+                    key={tech}
+                    className="px-3 py-1 bg-green-100 dark:bg-green-900/50 text-green-700 dark:text-green-300 rounded-full text-sm font-medium"
+                    whileHover={{ scale: 1.05 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    {tech}
+                  </motion.span>
+                ))}
+              </div>
+            </motion.div>
+
+            {/* Tools & Platforms */}
+            <motion.div
+              className="bg-gradient-to-br from-purple-50 to-violet-100 dark:from-purple-900/20 dark:to-violet-900/20 p-6 rounded-xl border border-purple-200 dark:border-purple-800"
+              whileHover={{ scale: 1.02, y: -5 }}
+              transition={{ duration: 0.3 }}
+            >
+              <div className="flex items-center mb-4">
+                <div className="w-10 h-10 bg-purple-600 rounded-lg flex items-center justify-center mr-3">
+                  <span className="text-white font-bold text-lg">T</span>
+                </div>
+                <h4 className="text-lg font-semibold text-secondary-900 dark:text-white">
+                  Tools & Platforms
+                </h4>
+              </div>
+              <div className="flex flex-wrap gap-2">
+                {[
+                  "Git",
+                  "Docker",
+                  "Azure",
+                  "Firebase",
+                  "Vite",
+                  "Webpack",
+                  "WebRTC",
+                  "VS Code",
+                ].map((tech) => (
+                  <motion.span
+                    key={tech}
+                    className="px-3 py-1 bg-purple-100 dark:bg-purple-900/50 text-purple-700 dark:text-purple-300 rounded-full text-sm font-medium"
+                    whileHover={{ scale: 1.05 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    {tech}
+                  </motion.span>
+                ))}
+              </div>
+            </motion.div>
+
+            {/* Design & UI/UX */}
+            <motion.div
+              className="bg-gradient-to-br from-pink-50 to-rose-100 dark:from-pink-900/20 dark:to-rose-900/20 p-6 rounded-xl border border-pink-200 dark:border-pink-800"
+              whileHover={{ scale: 1.02, y: -5 }}
+              transition={{ duration: 0.3 }}
+            >
+              <div className="flex items-center mb-4">
+                <div className="w-10 h-10 bg-pink-600 rounded-lg flex items-center justify-center mr-3">
+                  <span className="text-white font-bold text-lg">D</span>
+                </div>
+                <h4 className="text-lg font-semibold text-secondary-900 dark:text-white">
+                  Design & UI/UX
+                </h4>
+              </div>
+              <div className="flex flex-wrap gap-2">
+                {[
+                  "Figma",
+                  "Adobe XD",
+                  "Photoshop",
+                  "Illustrator",
+                  "Responsive Design",
+                  "User Experience",
+                  "Prototyping",
+                  "Wireframing",
+                ].map((tech) => (
+                  <motion.span
+                    key={tech}
+                    className="px-3 py-1 bg-pink-100 dark:bg-pink-900/50 text-pink-700 dark:text-pink-300 rounded-full text-sm font-medium"
+                    whileHover={{ scale: 1.05 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    {tech}
+                  </motion.span>
+                ))}
+              </div>
+            </motion.div>
+          </div>
+        </motion.div>
+
+        {/* Project Statistics */}
+        <motion.div
+          className="mb-16"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          viewport={{ once: true }}
+        >
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            <motion.div
+              className="text-center p-6 bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-900/20 dark:to-blue-900/30 rounded-xl border border-blue-200 dark:border-blue-800"
+              whileHover={{ scale: 1.05, y: -5 }}
+              transition={{ duration: 0.3 }}
+            >
+              <motion.div
+                className="text-3xl font-bold text-blue-600 dark:text-blue-400 mb-2"
+                initial={{ opacity: 0, scale: 0.5 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.6, delay: 0.3 }}
+                viewport={{ once: true }}
+              >
+                20+
+              </motion.div>
+              <p className="text-sm font-medium text-secondary-600 dark:text-secondary-400">
+                Total Projects
+              </p>
+            </motion.div>
+
+            <motion.div
+              className="text-center p-6 bg-gradient-to-br from-green-50 to-green-100 dark:from-green-900/20 dark:to-green-900/30 rounded-xl border border-green-200 dark:border-green-800"
+              whileHover={{ scale: 1.05, y: -5 }}
+              transition={{ duration: 0.3 }}
+            >
+              <motion.div
+                className="text-3xl font-bold text-green-600 dark:text-green-400 mb-2"
+                initial={{ opacity: 0, scale: 0.5 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.6, delay: 0.4 }}
+                viewport={{ once: true }}
+              >
+                25+
+              </motion.div>
+              <p className="text-sm font-medium text-secondary-600 dark:text-secondary-400">
+                Technologies
+              </p>
+            </motion.div>
+
+            <motion.div
+              className="text-center p-6 bg-gradient-to-br from-purple-50 to-purple-100 dark:from-purple-900/20 dark:to-purple-900/30 rounded-xl border border-purple-200 dark:border-purple-800"
+              whileHover={{ scale: 1.05, y: -5 }}
+              transition={{ duration: 0.3 }}
+            >
+              <motion.div
+                className="text-3xl font-bold text-purple-600 dark:text-purple-400 mb-2"
+                initial={{ opacity: 0, scale: 0.5 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.6, delay: 0.5 }}
+                viewport={{ once: true }}
+              >
+                2+
+              </motion.div>
+              <p className="text-sm font-medium text-secondary-600 dark:text-secondary-400">
+                Years Experience
+              </p>
+            </motion.div>
+
+            <motion.div
+              className="text-center p-6 bg-gradient-to-br from-orange-50 to-orange-100 dark:from-orange-900/20 dark:to-orange-900/30 rounded-xl border border-orange-200 dark:border-orange-800"
+              whileHover={{ scale: 1.05, y: -5 }}
+              transition={{ duration: 0.3 }}
+            >
+              <motion.div
+                className="text-3xl font-bold text-orange-600 dark:text-orange-400 mb-2"
+                initial={{ opacity: 0, scale: 0.5 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.6, delay: 0.6 }}
+                viewport={{ once: true }}
+              >
+                100%
+              </motion.div>
+              <p className="text-sm font-medium text-secondary-600 dark:text-secondary-400">
+                Client Satisfaction
+              </p>
+            </motion.div>
+          </div>
+        </motion.div>
+
         {/* Category Filter */}
         <motion.div
           className="flex flex-wrap justify-center gap-4 mb-12"
@@ -319,11 +659,10 @@ const Projects: React.FC = () => {
             <motion.button
               key={category.id}
               onClick={() => setSelectedCategory(category.id)}
-              className={`relative flex items-center space-x-2 px-6 py-3 rounded-full font-semibold transition-all duration-300 overflow-hidden ${
-                selectedCategory === category.id
-                  ? "bg-gradient-to-r from-primary-600 to-primary-700 text-white shadow-lg shadow-primary-600/25"
-                  : "bg-white dark:bg-secondary-800 text-secondary-700 dark:text-secondary-300 hover:bg-secondary-50 dark:hover:bg-secondary-700 border border-secondary-200 dark:border-secondary-600 hover:border-primary-300 dark:hover:border-primary-600"
-              }`}
+              className={`relative flex items-center space-x-2 px-6 py-3 rounded-full font-semibold transition-all duration-300 overflow-hidden ${selectedCategory === category.id
+                ? "bg-gradient-to-r from-primary-600 to-primary-700 text-white shadow-lg shadow-primary-600/25"
+                : "bg-white dark:bg-secondary-800 text-secondary-700 dark:text-secondary-300 hover:bg-secondary-50 dark:hover:bg-secondary-700 border border-secondary-200 dark:border-secondary-600 hover:border-primary-300 dark:hover:border-primary-600"
+                }`}
               whileHover={{
                 scale: 1.05,
                 boxShadow:
