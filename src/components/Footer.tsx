@@ -98,7 +98,7 @@ const Footer: React.FC = () => {
           transition={{ duration: 0.5, delay: 0.3 }}
         >
           <p className="text-secondary-400 text-sm">
-            © {currentYear} Portfolio. All rights reserved.
+            © {currentYear} Freddy Portfolio. All rights reserved.
           </p>
           <div className="flex items-center space-x-1 text-secondary-400 text-sm mt-4 md:mt-0">
             <span>Made with</span>
