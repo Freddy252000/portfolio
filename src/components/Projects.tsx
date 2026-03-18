@@ -114,7 +114,7 @@ const Projects: React.FC = () => {
       ],
       imageUrl:
         "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=600&h=400&fit=crop",
-      demoUrl: "https://freddyvincent.dev",
+      demoUrl: "https://portfolio-freddy-vincent.vercel.app",
       githubUrl: "https://github.com/Freddy252000/portfolio",
       featured: true,
       category: "web",

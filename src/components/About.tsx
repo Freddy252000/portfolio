@@ -120,6 +120,7 @@ const About: React.FC = () => {
           </motion.div>
 
           {/* Profile Image Placeholder */}
+          {/* Profile Image */}
           <motion.div
             className="flex justify-center"
             initial={{ opacity: 0, x: 50 }}
@@ -127,19 +128,95 @@ const About: React.FC = () => {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <div className="relative">
-              <motion.div
-                className="w-80 h-80 bg-gradient-to-br from-primary-400 to-secondary-500 rounded-full flex items-center justify-center text-white text-6xl font-bold shadow-2xl"
-                whileHover={{ scale: 1.05 }}
-                transition={{ duration: 0.3 }}
+            <div className="relative w-80 h-80">
+              <svg
+                width="100%"
+                height="100%"
+                viewBox="0 0 280 280"
+                style={{ overflow: "visible" }}
               >
-                YN
-              </motion.div>
-              <motion.div
-                className="absolute -inset-4 bg-gradient-to-r from-primary-400 to-secondary-500 rounded-full opacity-20 blur-xl"
-                animate={{ rotate: 360 }}
-                transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
-              />
+                <defs>
+                  <linearGradient id="cg" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0%" stopColor="#6366f1" />
+                    <stop offset="100%" stopColor="#8b5cf6" />
+                  </linearGradient>
+                </defs>
+
+                {/* Static faint outer ring */}
+                <circle
+                  cx="140" cy="140" r="128"
+                  fill="none"
+                  stroke="#6366f1"
+                  strokeWidth="0.5"
+                  opacity="0.12"
+                />
+
+                {/* Spinning ring 1 — clockwise, amber dot */}
+                <motion.g
+                  animate={{ rotate: 360 }}
+                  transition={{ duration: 7, repeat: Infinity, ease: "linear" }}
+                  style={{ transformOrigin: "140px 140px" }}
+                >
+                  <circle
+                    cx="140" cy="140" r="105"
+                    fill="none"
+                    stroke="#6366f1"
+                    strokeWidth="1.5"
+                    strokeDasharray="8 5"
+                    opacity="0.45"
+                  />
+                  {/* Amber dot at the right edge of ring (cx = 140+105) */}
+                  <circle cx="245" cy="140" r="6" fill="#f59e0b" />
+                  {/* Small purple dot on opposite side */}
+                  <circle cx="35" cy="140" r="3" fill="#6366f1" opacity="0.6" />
+                </motion.g>
+
+                {/* Spinning ring 2 — counter-clockwise, green dot */}
+                <motion.g
+                  animate={{ rotate: -360 }}
+                  transition={{ duration: 12, repeat: Infinity, ease: "linear" }}
+                  style={{ transformOrigin: "140px 140px" }}
+                >
+                  <circle
+                    cx="140" cy="140" r="128"
+                    fill="none"
+                    stroke="#8b5cf6"
+                    strokeWidth="1"
+                    strokeDasharray="4 8"
+                    opacity="0.3"
+                  />
+                  {/* Green dot at top of ring (cy = 140-128) */}
+                  <circle cx="140" cy="12" r="5" fill="#10b981" />
+                  {/* Small purple dot at bottom */}
+                  <circle cx="140" cy="268" r="3" fill="#8b5cf6" opacity="0.5" />
+                </motion.g>
+
+                {/* Core circle */}
+                <circle cx="140" cy="140" r="72" fill="url(#cg)" />
+                <circle
+                  cx="140" cy="140" r="72"
+                  fill="none"
+                  stroke="white"
+                  strokeWidth="0.5"
+                  opacity="0.25"
+                />
+
+                {/* Floating FV */}
+                <motion.text
+                  x="140"
+                  textAnchor="middle"
+                  dominantBaseline="central"
+                  fontFamily="system-ui, sans-serif"
+                  fontSize="46"
+                  fontWeight="800"
+                  fill="white"
+                  letterSpacing="4"
+                  animate={{ y: [140, 134, 140] }}
+                  transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+                >
+                  FV
+                </motion.text>
+              </svg>
             </div>
           </motion.div>
         </div>
