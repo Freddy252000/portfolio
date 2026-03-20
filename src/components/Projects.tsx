@@ -93,9 +93,9 @@ const Projects: React.FC = () => {
         "Push Notifications",
       ],
       imageUrl:
-        "https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?w=600&h=400&fit=crop",
+        "https://orders.co/static/432080c16d84bfce291c511ccb7fff74/80e91/Top-20-Food-Delivery-App-Advantages-for-Your-Restaurant-Business.webp",
       demoUrl: undefined,
-      githubUrl: "https://github.com/Freddy252000/foodordershop",
+      githubUrl: "https://github.com/Freddy252000/Restaurant-Mobile-App",
       featured: true,
       category: "mobile",
     },
@@ -162,71 +162,50 @@ const Projects: React.FC = () => {
       featured: false,
       category: "web",
     },
-    {
-      id: "8",
-      title: "Weather Dashboard",
-      description:
-        "Beautiful weather application with location-based forecasts",
-      longDescription:
-        "A responsive weather dashboard that provides detailed weather information, 7-day forecasts, and beautiful visualizations. Features location search and current location detection.",
-      technologies: [
-        "React",
-        "TypeScript",
-        "OpenWeather API",
-        "Chart.js",
-        "Geolocation API",
-      ],
-      imageUrl:
-        "https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?w=600&h=400&fit=crop",
-      demoUrl: undefined,
-      githubUrl: "https://github.com/Freddy252000",
-      featured: false,
-      category: "web",
-    },
-    {
-      id: "12",
-      title: "Social Media Dashboard",
-      description: "Analytics dashboard for social media management",
-      longDescription:
-        "A comprehensive social media management dashboard that aggregates data from multiple platforms. Features include analytics visualization, post scheduling, engagement tracking, and performance metrics with beautiful charts and graphs.",
-      technologies: [
-        "React",
-        "TypeScript",
-        "Chart.js",
-        "D3.js",
-        "REST APIs",
-        "Tailwind CSS",
-        "Redux Toolkit",
-      ],
-      imageUrl:
-        "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop",
-      demoUrl: undefined,
-      githubUrl: "https://github.com/Freddy252000",
-      featured: false,
-      category: "web",
-    },
-    {
-      id: "13",
-      title: "Expense Tracker Mobile App",
-      description: "Personal finance management mobile application",
-      longDescription:
-        "A comprehensive expense tracking mobile app built with React Native. Features include expense categorization, budget planning, financial reports, receipt scanning, multi-currency support, and data synchronization across devices.",
-      technologies: [
-        "React Native",
-        "TypeScript",
-        "SQLite",
-        "React Navigation",
-        "Chart.js",
-        "Camera API",
-        "AsyncStorage",
-      ],
-      imageUrl:
-        "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=600&h=400&fit=crop",
-      demoUrl: undefined,
-      githubUrl: "https://github.com/Freddy252000",
-      featured: false,
-      category: "mobile",
-    },
+    // {
+    //   id: "12",
+    //   title: "Social Media Dashboard",
+    //   description: "Analytics dashboard for social media management",
+    //   longDescription:
+    //     "A comprehensive social media management dashboard that aggregates data from multiple platforms. Features include analytics visualization, post scheduling, engagement tracking, and performance metrics with beautiful charts and graphs.",
+    //   technologies: [
+    //     "React",
+    //     "TypeScript",
+    //     "Chart.js",
+    //     "D3.js",
+    //     "REST APIs",
+    //     "Tailwind CSS",
+    //     "Redux Toolkit",
+    //   ],
+    //   imageUrl:
+    //     "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop",
+    //   demoUrl: undefined,
+    //   githubUrl: "https://github.com/Freddy252000",
+    //   featured: false,
+    //   category: "web",
+    // },
+    // {
+    //   id: "13",
+    //   title: "Expense Tracker Mobile App",
+    //   description: "Personal finance management mobile application",
+    //   longDescription:
+    //     "A comprehensive expense tracking mobile app built with React Native. Features include expense categorization, budget planning, financial reports, receipt scanning, multi-currency support, and data synchronization across devices.",
+    //   technologies: [
+    //     "React Native",
+    //     "TypeScript",
+    //     "SQLite",
+    //     "React Navigation",
+    //     "Chart.js",
+    //     "Camera API",
+    //     "AsyncStorage",
+    //   ],
+    //   imageUrl:
+    //     "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=600&h=400&fit=crop",
+    //   demoUrl: undefined,
+    //   githubUrl: "https://github.com/Freddy252000",
+    //   featured: false,
+    //   category: "mobile",
+    // },
     {
       id: "14",
       title: "Music Streaming Mobile App",
