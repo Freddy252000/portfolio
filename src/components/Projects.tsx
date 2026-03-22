@@ -158,7 +158,7 @@ const Projects: React.FC = () => {
       imageUrl:
         "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&h=400&fit=crop",
       demoUrl: undefined,
-      githubUrl: "https://github.com/Freddy252000",
+      githubUrl: "https://github.com/Freddy252000/Store",
       featured: false,
       category: "web",
     },
@@ -224,84 +224,84 @@ const Projects: React.FC = () => {
       imageUrl:
         "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=600&h=400&fit=crop",
       demoUrl: undefined,
-      githubUrl: "https://github.com/Freddy252000",
+      githubUrl: "https://github.com/Freddy252000/MusicStreaming",
       featured: true,
       category: "mobile",
     },
-    {
-      id: "15",
-      title: "Video Conferencing Desktop App",
-      description: "Zoom-like video conferencing application",
-      longDescription:
-        "A professional video conferencing desktop application built with Electron. Features include HD video calls, screen sharing, chat messaging, recording capabilities, virtual backgrounds, and meeting scheduling.",
-      technologies: [
-        "Electron",
-        "WebRTC",
-        "React",
-        "TypeScript",
-        "Socket.io",
-        "Node.js",
-        "Media APIs",
-      ],
-      imageUrl:
-        "https://images.unsplash.com/photo-1587825140708-dfaf72ae4b04?w=600&h=400&fit=crop",
-      demoUrl: undefined,
-      githubUrl: "https://github.com/Freddy252000",
-      featured: false,
-      category: "desktop",
-    },
+    // {
+    //   id: "15",
+    //   title: "Video Conferencing Desktop App",
+    //   description: "Zoom-like video conferencing application",
+    //   longDescription:
+    //     "A professional video conferencing desktop application built with Electron. Features include HD video calls, screen sharing, chat messaging, recording capabilities, virtual backgrounds, and meeting scheduling.",
+    //   technologies: [
+    //     "Electron",
+    //     "WebRTC",
+    //     "React",
+    //     "TypeScript",
+    //     "Socket.io",
+    //     "Node.js",
+    //     "Media APIs",
+    //   ],
+    //   imageUrl:
+    //     "https://images.unsplash.com/photo-1587825140708-dfaf72ae4b04?w=600&h=400&fit=crop",
+    //   demoUrl: undefined,
+    //   githubUrl: "https://github.com/Freddy252000",
+    //   featured: false,
+    //   category: "desktop",
+    // },
 
-    {
-      id: "19",
-      title: "Travel Companion Mobile App",
-      description: "Complete travel planning and booking mobile application",
-      longDescription:
-        "A comprehensive travel companion app that helps users plan trips, book accommodations, discover local attractions, track expenses, and share travel experiences. Features offline maps, currency converter, and travel journal.",
-      technologies: [
-        "React Native",
-        "TypeScript",
-        "Maps API",
-        "Payment Gateway",
-        "Firebase",
-        "Camera API",
-        "Geolocation",
-      ],
-      imageUrl:
-        "https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=600&h=400&fit=crop",
-      demoUrl: undefined,
-      githubUrl: "https://github.com/Freddy252000",
-      featured: false,
-      category: "mobile",
-    },
-    {
-      id: "20",
-      title: "Meditation & Wellness App",
-      description: "Mental health and wellness mobile application",
-      longDescription:
-        "A mindfulness and wellness app featuring guided meditations, breathing exercises, mood tracking, sleep stories, and progress analytics. Built with React Native and includes biometric authentication and health kit integration.",
-      technologies: [
-        "React Native",
-        "TypeScript",
-        "Audio APIs",
-        "HealthKit",
-        "Biometric Auth",
-        "Push Notifications",
-        "Analytics",
-      ],
-      imageUrl:
-        "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&h=400&fit=crop",
-      demoUrl: undefined,
-      githubUrl: "https://github.com/Freddy252000",
-      featured: false,
-      category: "mobile",
-    },
+    // {
+    //   id: "19",
+    //   title: "Travel Companion Mobile App",
+    //   description: "Complete travel planning and booking mobile application",
+    //   longDescription:
+    //     "A comprehensive travel companion app that helps users plan trips, book accommodations, discover local attractions, track expenses, and share travel experiences. Features offline maps, currency converter, and travel journal.",
+    //   technologies: [
+    //     "React Native",
+    //     "TypeScript",
+    //     "Maps API",
+    //     "Payment Gateway",
+    //     "Firebase",
+    //     "Camera API",
+    //     "Geolocation",
+    //   ],
+    //   imageUrl:
+    //     "https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=600&h=400&fit=crop",
+    //   demoUrl: undefined,
+    //   githubUrl: "https://github.com/Freddy252000",
+    //   featured: false,
+    //   category: "mobile",
+    // },
+    // {
+    //   id: "20",
+    //   title: "Meditation & Wellness App",
+    //   description: "Mental health and wellness mobile application",
+    //   longDescription:
+    //     "A mindfulness and wellness app featuring guided meditations, breathing exercises, mood tracking, sleep stories, and progress analytics. Built with React Native and includes biometric authentication and health kit integration.",
+    //   technologies: [
+    //     "React Native",
+    //     "TypeScript",
+    //     "Audio APIs",
+    //     "HealthKit",
+    //     "Biometric Auth",
+    //     "Push Notifications",
+    //     "Analytics",
+    //   ],
+    //   imageUrl:
+    //     "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&h=400&fit=crop",
+    //   demoUrl: undefined,
+    //   githubUrl: "https://github.com/Freddy252000",
+    //   featured: false,
+    //   category: "mobile",
+    // },
   ];
 
   const categories = [
     { id: "all", name: "All Projects" },
     { id: "web", name: "Web Apps" },
     { id: "mobile", name: "Mobile Apps" },
-    { id: "desktop", name: "Desktop Apps" },
+    // { id: "desktop", name: "Desktop Apps" },
   ];
 
   const filteredProjects =
