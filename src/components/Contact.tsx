@@ -1,9 +1,18 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { Mail, Phone, MapPin, Send, CheckCircle } from "lucide-react";
+import { Mail, Phone, MapPin, Send, CheckCircle, XCircle } from "lucide-react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
+import emailjs from "@emailjs/browser";
+
+// ─────────────────────────────────────────────
+// 🔧 EMAILJS CONFIG — fill these in after setup
+// ─────────────────────────────────────────────
+const EMAILJS_SERVICE_ID = "service_r01ay3b";   // e.g. "service_abc123"
+const EMAILJS_TEMPLATE_ID = "template_nkz2dda"; // e.g. "template_xyz789"
+const EMAILJS_PUBLIC_KEY = "acYtEFfF91u3bik1q";   // e.g. "aBcDeFgHiJkLmNoP"
+// ─────────────────────────────────────────────
 
 interface ContactForm {
   name: string;
@@ -21,6 +30,7 @@ const contactSchema = z.object({
 
 const Contact: React.FC = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
 
   const {
     register,
@@ -32,20 +42,35 @@ const Contact: React.FC = () => {
   });
 
   const onSubmit = async (data: ContactForm) => {
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1000));
-    console.log("Form submitted:", data);
-    setIsSubmitted(true);
-    reset();
-    setTimeout(() => setIsSubmitted(false), 3000);
+    setSubmitError(null);
+    try {
+      await emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        {
+          from_name: data.name,
+          from_email: data.email,
+          subject: data.subject,
+          message: data.message,
+          to_email: "Freddyvfreddy@gmail.com",
+        },
+        EMAILJS_PUBLIC_KEY
+      );
+      setIsSubmitted(true);
+      reset();
+      setTimeout(() => setIsSubmitted(false), 4000);
+    } catch (error) {
+      console.error("EmailJS error:", error);
+      setSubmitError("Failed to send message. Please try again or email me directly.");
+    }
   };
 
   const contactInfo = [
     {
       icon: Mail,
       label: "Email",
-      value: "freddyfreddy@gmail.com",
-      href: "mailto:freddyfreddy@gmail.com",
+      value: "Freddyvfreddy@gmail.com",
+      href: "mailto:Freddyvfreddy@gmail.com",
     },
     {
       icon: Phone,
@@ -65,9 +90,7 @@ const Contact: React.FC = () => {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-      },
+      transition: { staggerChildren: 0.1 },
     },
   };
 
@@ -181,6 +204,18 @@ const Contact: React.FC = () => {
               </motion.div>
             ) : (
               <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+                {/* Error Banner */}
+                {submitError && (
+                  <motion.div
+                    className="flex items-start gap-3 p-4 rounded-lg bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800"
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                  >
+                    <XCircle className="w-5 h-5 text-red-500 flex-shrink-0 mt-0.5" />
+                    <p className="text-sm text-red-700 dark:text-red-400">{submitError}</p>
+                  </motion.div>
+                )}
+
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
                     <label className="block text-sm font-medium text-secondary-700 dark:text-secondary-300 mb-2">
@@ -193,9 +228,7 @@ const Contact: React.FC = () => {
                       placeholder="Your name"
                     />
                     {errors.name && (
-                      <p className="mt-1 text-sm text-red-500">
-                        {errors.name.message}
-                      </p>
+                      <p className="mt-1 text-sm text-red-500">{errors.name.message}</p>
                     )}
                   </div>
 
@@ -210,9 +243,7 @@ const Contact: React.FC = () => {
                       placeholder="your.email@example.com"
                     />
                     {errors.email && (
-                      <p className="mt-1 text-sm text-red-500">
-                        {errors.email.message}
-                      </p>
+                      <p className="mt-1 text-sm text-red-500">{errors.email.message}</p>
                     )}
                   </div>
                 </div>
@@ -228,9 +259,7 @@ const Contact: React.FC = () => {
                     placeholder="What's this about?"
                   />
                   {errors.subject && (
-                    <p className="mt-1 text-sm text-red-500">
-                      {errors.subject.message}
-                    </p>
+                    <p className="mt-1 text-sm text-red-500">{errors.subject.message}</p>
                   )}
                 </div>
 
@@ -245,9 +274,7 @@ const Contact: React.FC = () => {
                     placeholder="Tell me about your project..."
                   />
                   {errors.message && (
-                    <p className="mt-1 text-sm text-red-500">
-                      {errors.message.message}
-                    </p>
+                    <p className="mt-1 text-sm text-red-500">{errors.message.message}</p>
                   )}
                 </div>
 
