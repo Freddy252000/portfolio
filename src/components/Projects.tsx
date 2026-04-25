@@ -12,7 +12,7 @@ interface Project {
   demoUrl?: string;
   githubUrl?: string;
   featured: boolean;
-  category: "web" | "mobile" | "desktop" | "other";
+  category: "web" | "mobile" | "desktop" | "design" | "other";
 }
 
 const Projects: React.FC = () => {
@@ -162,50 +162,6 @@ const Projects: React.FC = () => {
       featured: false,
       category: "web",
     },
-    // {
-    //   id: "12",
-    //   title: "Social Media Dashboard",
-    //   description: "Analytics dashboard for social media management",
-    //   longDescription:
-    //     "A comprehensive social media management dashboard that aggregates data from multiple platforms. Features include analytics visualization, post scheduling, engagement tracking, and performance metrics with beautiful charts and graphs.",
-    //   technologies: [
-    //     "React",
-    //     "TypeScript",
-    //     "Chart.js",
-    //     "D3.js",
-    //     "REST APIs",
-    //     "Tailwind CSS",
-    //     "Redux Toolkit",
-    //   ],
-    //   imageUrl:
-    //     "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop",
-    //   demoUrl: undefined,
-    //   githubUrl: "https://github.com/Freddy252000",
-    //   featured: false,
-    //   category: "web",
-    // },
-    // {
-    //   id: "13",
-    //   title: "Expense Tracker Mobile App",
-    //   description: "Personal finance management mobile application",
-    //   longDescription:
-    //     "A comprehensive expense tracking mobile app built with React Native. Features include expense categorization, budget planning, financial reports, receipt scanning, multi-currency support, and data synchronization across devices.",
-    //   technologies: [
-    //     "React Native",
-    //     "TypeScript",
-    //     "SQLite",
-    //     "React Navigation",
-    //     "Chart.js",
-    //     "Camera API",
-    //     "AsyncStorage",
-    //   ],
-    //   imageUrl:
-    //     "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=600&h=400&fit=crop",
-    //   demoUrl: undefined,
-    //   githubUrl: "https://github.com/Freddy252000",
-    //   featured: false,
-    //   category: "mobile",
-    // },
     {
       id: "14",
       title: "Music Streaming Mobile App",
@@ -228,80 +184,78 @@ const Projects: React.FC = () => {
       featured: true,
       category: "mobile",
     },
-    // {
-    //   id: "15",
-    //   title: "Video Conferencing Desktop App",
-    //   description: "Zoom-like video conferencing application",
-    //   longDescription:
-    //     "A professional video conferencing desktop application built with Electron. Features include HD video calls, screen sharing, chat messaging, recording capabilities, virtual backgrounds, and meeting scheduling.",
-    //   technologies: [
-    //     "Electron",
-    //     "WebRTC",
-    //     "React",
-    //     "TypeScript",
-    //     "Socket.io",
-    //     "Node.js",
-    //     "Media APIs",
-    //   ],
-    //   imageUrl:
-    //     "https://images.unsplash.com/photo-1587825140708-dfaf72ae4b04?w=600&h=400&fit=crop",
-    //   demoUrl: undefined,
-    //   githubUrl: "https://github.com/Freddy252000",
-    //   featured: false,
-    //   category: "desktop",
-    // },
-
-    // {
-    //   id: "19",
-    //   title: "Travel Companion Mobile App",
-    //   description: "Complete travel planning and booking mobile application",
-    //   longDescription:
-    //     "A comprehensive travel companion app that helps users plan trips, book accommodations, discover local attractions, track expenses, and share travel experiences. Features offline maps, currency converter, and travel journal.",
-    //   technologies: [
-    //     "React Native",
-    //     "TypeScript",
-    //     "Maps API",
-    //     "Payment Gateway",
-    //     "Firebase",
-    //     "Camera API",
-    //     "Geolocation",
-    //   ],
-    //   imageUrl:
-    //     "https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=600&h=400&fit=crop",
-    //   demoUrl: undefined,
-    //   githubUrl: "https://github.com/Freddy252000",
-    //   featured: false,
-    //   category: "mobile",
-    // },
-    // {
-    //   id: "20",
-    //   title: "Meditation & Wellness App",
-    //   description: "Mental health and wellness mobile application",
-    //   longDescription:
-    //     "A mindfulness and wellness app featuring guided meditations, breathing exercises, mood tracking, sleep stories, and progress analytics. Built with React Native and includes biometric authentication and health kit integration.",
-    //   technologies: [
-    //     "React Native",
-    //     "TypeScript",
-    //     "Audio APIs",
-    //     "HealthKit",
-    //     "Biometric Auth",
-    //     "Push Notifications",
-    //     "Analytics",
-    //   ],
-    //   imageUrl:
-    //     "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&h=400&fit=crop",
-    //   demoUrl: undefined,
-    //   githubUrl: "https://github.com/Freddy252000",
-    //   featured: false,
-    //   category: "mobile",
-    // },
+    // ── NEW: Nova AI Voice Assistant ───────────────────────────────────────────
+    {
+      id: "15",
+      title: "Nova — AI Voice Assistant",
+      description: "Python-powered voice assistant with wake-word detection",
+      longDescription:
+        "Built Nova from scratch using pure Python — no AI frameworks. Features include voice-controlled YouTube music playback, Wikipedia Q&A, reminders, system volume control, screenshots, and smart wake-word detection that listens for 'Nova' continuously without blocking command input.",
+      technologies: [
+        "Python",
+        "SpeechRecognition",
+        "pyttsx3",
+        "pywhatkit",
+        "PyAudio",
+        "pyautogui",
+      ],
+      imageUrl:
+        "https://images.unsplash.com/photo-1589254065878-42c9da997008?w=600&h=400&fit=crop",
+      demoUrl: undefined,
+      githubUrl: "https://github.com/Freddy252000/Nova-Voice-Assistant",
+      featured: true,
+      category: "other",
+    },
+    // ── NEW: Social Media Dashboard UI (Figma) ────────────────────────────────
+    {
+      id: "16",
+      title: "Social Media Dashboard UI",
+      description: "SaaS-style analytics dashboard published on Figma Community",
+      longDescription:
+        "A modern social media analytics dashboard concept designed for businesses and content creators. Includes engagement metrics, post performance charts, reach analytics, and a clean minimal SaaS layout. Published on Figma Community and available for duplication.",
+      technologies: [
+        "Figma",
+        "UI/UX Design",
+        "Dashboard Design",
+        "Data Visualization",
+        "Responsive Design",
+      ],
+      imageUrl:
+        "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop",
+      demoUrl: "https://www.figma.com/design/fXIBuEEUG4U4AexGQbJdAH/Social-Media-Dashboard--Community-?m=auto&t=Y4dWJP6eA62A1lFq-6",
+      githubUrl: undefined,
+      featured: true,
+      category: "design",
+    },
+    // ── NEW: Auralyx Music Streaming UI (Figma) ───────────────────────────────
+    {
+      id: "17",
+      title: "Auralyx — Music Streaming App UI",
+      description: "Spotify-inspired mobile UI design with 8 screens on Figma Community",
+      longDescription:
+        "Designed Auralyx, a modern music streaming mobile app UI inspired by Spotify. Covers playlist management, music discovery, and a seamless audio player interface across 8 polished screens. Published on Figma Community.",
+      technologies: [
+        "Figma",
+        "Mobile UI Design",
+        "UI/UX Design",
+        "Prototyping",
+        "Wireframing",
+      ],
+      imageUrl:
+        "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=600&h=400&fit=crop",
+      demoUrl: "https://www.figma.com/design/TwjirtkM7kCkfmPzg47lge/Auralyx-%E2%80%93-Music-Streaming-Mobile-App-UI-Kit--Community-?m=auto&t=Y4dWJP6eA62A1lFq-6",
+      githubUrl: undefined,
+      featured: true,
+      category: "design",
+    },
   ];
 
   const categories = [
     { id: "all", name: "All Projects" },
     { id: "web", name: "Web Apps" },
     { id: "mobile", name: "Mobile Apps" },
-    // { id: "desktop", name: "Desktop Apps" },
+    { id: "design", name: "UI/UX Design" },
+    { id: "other", name: "Other" },
   ];
 
   const filteredProjects =
@@ -445,12 +399,7 @@ const Projects: React.FC = () => {
                 </h4>
               </div>
               <div className="flex flex-wrap gap-2">
-                {[
-                  "Node.js",
-                  "Python",
-                  "PostgreSQL",
-                  "MongoDB",
-                ].map((tech) => (
+                {["Node.js", "Python", "PostgreSQL", "MongoDB"].map((tech) => (
                   <motion.span
                     key={tech}
                     className="px-3 py-1 bg-green-100 dark:bg-green-900/50 text-green-700 dark:text-green-300 rounded-full text-sm font-medium"
@@ -598,7 +547,7 @@ const Projects: React.FC = () => {
                 transition={{ duration: 0.6, delay: 0.5 }}
                 viewport={{ once: true }}
               >
-                2+
+                3+
               </motion.div>
               <p className="text-sm font-medium text-secondary-600 dark:text-secondary-400">
                 Years Experience
@@ -743,6 +692,12 @@ const Projects: React.FC = () => {
                         Featured
                       </div>
                     )}
+                    {/* Design badge */}
+                    {project.category === "design" && (
+                      <div className="absolute top-4 right-4 bg-pink-600 text-white px-3 py-1 rounded-full text-sm font-medium">
+                        Figma
+                      </div>
+                    )}
                   </div>
 
                   {/* Project Content */}
@@ -785,7 +740,9 @@ const Projects: React.FC = () => {
                       <div className="flex space-x-2">
                         {project.demoUrl && (
                           <span className="text-xs text-secondary-500 dark:text-secondary-400">
-                            Live Demo
+                            {project.category === "design"
+                              ? "Figma Community"
+                              : "Live Demo"}
                           </span>
                         )}
                         {project.githubUrl && (
