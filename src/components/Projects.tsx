@@ -281,6 +281,7 @@ const Projects: React.FC = () => {
     },
   };
 
+
   const itemVariants = {
     hidden: {
       opacity: 0,
