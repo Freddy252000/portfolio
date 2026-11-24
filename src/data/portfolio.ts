@@ -11,58 +11,142 @@ import {
   Mic,
   LayoutDashboard,
   Headphones,
+  Users,
+  Hotel,
 } from "lucide-react";
 
 export const profile = {
   name: "Freddy Vincent",
   firstName: "Freddy",
   lastName: "Vincent",
-  role: "Software Engineer & Mobile App Developer",
+  role: "Software Engineer & Mobile Developer",
   roles: ["Software Engineer", "Mobile Developer", "Frontend Developer"],
   photo: "/profile.webp",
-  company: "Invicta Innovation",
+  /** Current position. */
+  currentRole: "Technical Support & Digital Marketing Advisor",
+  currentCompany: "VBR",
+  /** Previous engineering role (from the CV). */
+  company: "Invicta Innovations (Pvt.) Ltd.",
+  companyShort: "Invicta Innovations",
+  yearsExperience: "3+",
   location: "Jaffna, Sri Lanka",
   email: "Freddyvfreddy@gmail.com",
   phone: "0774322659",
-  cv: "/Freddy.pdf",
+  cv: "/Freddy_Vincent_CV.pdf",
   github: "https://github.com/Freddy252000",
   linkedin: "https://www.linkedin.com/in/freddyvincent",
   tagline:
-    "I build secure, end-to-end encrypted mobile experiences that feel effortless to use.",
+    "React Native engineer with 3+ years building scalable mobile and web apps, real-time systems and clean frontend architecture.",
 };
 
 export type SkillCategory = "frontend" | "backend" | "design" | "tools";
 
 export const skillCategories: { id: SkillCategory; label: string }[] = [
   { id: "frontend", label: "Frontend & Mobile" },
-  { id: "backend", label: "Backend & Security" },
-  { id: "design", label: "Design" },
-  { id: "tools", label: "Tools & Cloud" },
+  { id: "backend", label: "Real-time, APIs & State" },
+  { id: "design", label: "UI/UX" },
+  { id: "tools", label: "Tools & AI" },
 ];
 
+/** Skills as listed on the CV. */
 export const skills: { name: string; category: SkillCategory }[] = [
   { name: "React Native", category: "frontend" },
-  { name: "React", category: "frontend" },
+  { name: "React.js", category: "frontend" },
   { name: "TypeScript", category: "frontend" },
-  { name: "JavaScript", category: "frontend" },
-  { name: "HTML/CSS", category: "frontend" },
-  { name: "Node.js", category: "backend" },
-  { name: "PostgreSQL", category: "backend" },
-  { name: "Python", category: "backend" },
-  { name: "Secure Communication", category: "backend" },
+  { name: "JavaScript (ES6+)", category: "frontend" },
+  { name: "HTML5 & CSS3", category: "frontend" },
+  { name: "Tailwind CSS", category: "frontend" },
+  { name: "Expo", category: "frontend" },
+  { name: "REST APIs", category: "backend" },
+  { name: "WebSocket", category: "backend" },
+  { name: "Socket.io", category: "backend" },
+  { name: "Firebase SDK", category: "backend" },
+  { name: "SQLite", category: "backend" },
+  { name: "Zustand", category: "backend" },
+  { name: "Redux Toolkit", category: "backend" },
+  { name: "React Query", category: "backend" },
   { name: "End-to-End Encryption", category: "backend" },
   { name: "Figma", category: "design" },
-  { name: "UI/UX Design", category: "design" },
-  { name: "Mobile App Design", category: "design" },
   { name: "Adobe XD", category: "design" },
   { name: "Responsive Design", category: "design" },
-  { name: "Git", category: "tools" },
-  { name: "Docker", category: "tools" },
-  { name: "Firebase", category: "tools" },
-  { name: "AWS", category: "tools" },
-  { name: "Azure", category: "tools" },
-  { name: "Linux", category: "tools" },
+  { name: "Mobile-first Design", category: "design" },
+  { name: "Git & GitHub", category: "tools" },
+  { name: "Android Studio", category: "tools" },
+  { name: "Postman", category: "tools" },
   { name: "VS Code", category: "tools" },
+  { name: "CI/CD", category: "tools" },
+  { name: "Python", category: "tools" },
+];
+
+export interface ExperienceItem {
+  when: string;
+  title: string;
+  place: string;
+  points: string[];
+  tags: string[];
+  kind: "work" | "education" | "cert";
+  current?: boolean;
+}
+
+/** Work history and education, newest first (from the CV). */
+export const experience: ExperienceItem[] = [
+  {
+    when: "Now",
+    title: "Technical Support & Digital Marketing Advisor",
+    place: "VBR",
+    points: ["Providing technical support and advising on digital marketing."],
+    tags: ["Technical Support", "Digital Marketing"],
+    kind: "work",
+    current: true,
+  },
+  {
+    when: "Apr 2026",
+    title: "Two professional certifications",
+    place: "WorkLoo · Copado",
+    points: [
+      "Frontend Developer Certification at Professional level with a 100% score.",
+      "Copado AI Certified Professional for AI-powered DevOps and CI/CD.",
+    ],
+    tags: ["Frontend", "DevOps", "CI/CD"],
+    kind: "cert",
+  },
+  {
+    when: "Apr 2023 – Jun 2026",
+    title: "Software Engineer",
+    place: "Invicta Innovations (Pvt.) Ltd., Sri Lanka",
+    points: [
+      "Built and maintained 3+ production-grade mobile and web apps with React Native and React.js.",
+      "Implemented real-time features with WebSocket for low-latency communication.",
+      "Improved app performance by 25% through optimised rendering and state management.",
+      "Designed reusable UI components and a scalable frontend architecture; integrated REST APIs.",
+    ],
+    tags: ["React Native", "React.js", "WebSocket", "REST APIs", "Agile"],
+    kind: "work",
+  },
+  {
+    when: "Apr 2023 – Sep 2023",
+    title: "Software Engineer Intern",
+    place: "Invicta Innovations (Pvt.) Ltd., Sri Lanka",
+    points: ["Assisted with frontend development in React.js and JavaScript, API integration and UI work."],
+    tags: ["React.js", "JavaScript"],
+    kind: "work",
+  },
+  {
+    when: "Mar 2023 – Sep 2024",
+    title: "BEng (Hons) Software Engineering",
+    place: "Esoft Metro Campus, Jaffna · London Metropolitan University",
+    points: ["Bachelor's degree in software engineering."],
+    tags: ["Software Engineering"],
+    kind: "education",
+  },
+  {
+    when: "Apr 2021 – Feb 2023",
+    title: "HND in Software Engineering (Distinction)",
+    place: "Esoft Metro Campus, Jaffna",
+    points: ["Higher National Diploma, completed with Distinction."],
+    tags: ["Distinction"],
+    kind: "education",
+  },
 ];
 
 export type ProjectCategory = "web" | "mobile" | "design" | "other";
@@ -93,11 +177,11 @@ export const projectFilters: { id: "all" | ProjectCategory; label: string }[] = 
 export const projects: Project[] = [
   {
     id: "secure-chat",
-    title: "Secure Chat Application",
-    description: "End-to-end encrypted chat app at Invicta Innovation",
+    title: "Secure Real-Time Chat App",
+    description: "WhatsApp-style messenger with end-to-end encryption",
     longDescription:
-      "Currently developing a cutting-edge chat application with end-to-end encryption using React Native. Features include secure messaging, real-time communication, user authentication, and advanced privacy controls.",
-    technologies: ["React Native", "TypeScript", "End-to-End Encryption", "Node.js", "WebSocket"],
+      "A WhatsApp-like mobile messenger built with React Native and TypeScript. Real-time messaging over WebSocket, an end-to-end encrypted messaging system, an offline-first architecture with SQLite, and lean, fast state management with Zustand.",
+    technologies: ["React Native", "TypeScript", "Zustand", "SQLite", "WebSocket", "End-to-End Encryption"],
     icon: ShieldCheck,
     featured: true,
     category: "mobile",
@@ -153,9 +237,9 @@ export const projects: Project[] = [
   {
     id: "nova",
     title: "Nova — AI Voice Assistant",
-    description: "Python-powered voice assistant with wake-word detection",
+    description: "AI voice assistant with NLP command processing, ready for LLMs",
     longDescription:
-      "Built Nova from scratch using pure Python — no AI frameworks. Features include voice-controlled YouTube music playback, Wikipedia Q&A, reminders, system volume control, screenshots, and smart wake-word detection that listens for 'Nova' continuously without blocking command input.",
+      "A Python-based AI voice assistant with speech recognition and command execution. NLP-based command processing automates everyday tasks (YouTube playback, Wikipedia Q&A, reminders, volume, screenshots) behind a non-blocking “Nova” wake word, with a modular architecture designed for future LLM integration.",
     technologies: ["Python", "SpeechRecognition", "pyttsx3", "pywhatkit", "PyAudio", "pyautogui"],
     icon: Mic,
     githubUrl: "https://github.com/Freddy252000/Nova-Voice-Assistant",
@@ -185,6 +269,28 @@ export const projects: Project[] = [
     icon: KanbanSquare,
     githubUrl: "https://github.com/Freddy252000/Task-Management-System",
     featured: false,
+    category: "web",
+  },
+  {
+    id: "hrms",
+    title: "HRMS Web Application",
+    description: "Employee management system with dashboards and analytics",
+    longDescription:
+      "An HR management system for managing employees, with dashboards and analytics. Integrated REST APIs for backend communication and built a library of reusable UI components so the app could scale.",
+    technologies: ["React.js", "JavaScript", "REST APIs"],
+    icon: Users,
+    featured: true,
+    category: "web",
+  },
+  {
+    id: "hotel",
+    title: "Hotel Booking System",
+    description: "Multi-property booking with real-time validation",
+    longDescription:
+      "A multi-property hotel booking system with real-time validation, plus improved UI responsiveness and mobile compatibility across the booking flow.",
+    technologies: ["React.js", "JavaScript"],
+    icon: Hotel,
+    featured: true,
     category: "web",
   },
   {

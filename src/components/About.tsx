@@ -1,6 +1,6 @@
 import { lazy, Suspense, useMemo, useState } from "react";
 import { useReducedMotion } from "framer-motion";
-import { Briefcase, MapPin, Move3d, ShieldCheck, Smartphone, Sparkles } from "lucide-react";
+import { Briefcase, Gauge, GraduationCap, MapPin, Move3d, Sparkles, Zap } from "lucide-react";
 import { profile, skillCategories, skills } from "../data/portfolio";
 import type { SkillCategory } from "../data/portfolio";
 import { Gradient, Reveal, SectionHeading, useMediaQuery } from "./ui";
@@ -16,9 +16,9 @@ const dotColor: Record<SkillCategory, string> = {
 };
 
 const pillars = [
-  { Icon: ShieldCheck, title: "Security first", text: "End-to-end encryption and private-by-default architecture." },
-  { Icon: Smartphone, title: "Mobile native feel", text: "React Native apps that feel fast, fluid and familiar." },
-  { Icon: Sparkles, title: "Design + code", text: "UI/UX designer too, with kits published on Figma Community." },
+  { Icon: Zap, title: "Real-time & secure", text: "WebSocket messaging, offline-first data and end-to-end encryption." },
+  { Icon: Gauge, title: "Performance-minded", text: "Improved app performance by 25% through optimised rendering and state." },
+  { Icon: Sparkles, title: "Exploring AI", text: "Python automation, NLP and LLM integration, starting with Nova." },
 ];
 
 const About = () => {
@@ -44,20 +44,25 @@ const About = () => {
           <div className="space-y-8">
             <Reveal className="space-y-5 text-lg leading-relaxed text-muted">
               <p>
-                I'm a Software Engineer at <span className="text-ink">{profile.company}</span>, where I'm
-                building a chat application with end-to-end encryption in React Native. I specialise in
-                secure, scalable mobile apps that put user privacy first, without making them harder to use.
+                I'm a React Native engineer with <span className="text-ink">3+ years of experience</span> building
+                scalable mobile and web applications. At <span className="text-ink">{profile.companyShort}</span> I
+                built and maintained production apps with React Native and React.js, real-time features over
+                WebSocket, and a WhatsApp-style chat app with end-to-end encryption.
               </p>
               <p>
-                My work spans mobile, web and secure communication systems, from fitness tracking and
-                e-learning to food delivery. I care about clean, maintainable code, and I'm always
-                exploring new frameworks, tools and ideas in mobile development and cybersecurity.
+                Today I work at <span className="text-ink">{profile.currentCompany}</span> as a{" "}
+                <span className="text-ink">{profile.currentRole}</span>. My strengths are real-time systems, API
+                integration and frontend architecture, and I'm expanding into AI/ML with Python automation and
+                LLM integration.
               </p>
             </Reveal>
 
             <Reveal delay={0.1} className="panel flex flex-wrap items-center gap-x-6 gap-y-3 p-5 text-sm font-medium">
               <span className="flex items-center gap-2 text-ink">
-                <Briefcase size={16} className="text-accent" /> Software Engineer · {profile.company}
+                <Briefcase size={16} className="text-accent" /> {profile.currentRole} · {profile.currentCompany}
+              </span>
+              <span className="flex items-center gap-2 text-muted">
+                <GraduationCap size={16} className="text-accent" /> BEng (Hons) Software Engineering
               </span>
               <span className="flex items-center gap-2 text-muted">
                 <MapPin size={16} className="text-accent" /> {profile.location}

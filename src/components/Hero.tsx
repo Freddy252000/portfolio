@@ -20,8 +20,8 @@ const socials = [
 ];
 
 const stats = [
+  { value: profile.yearsExperience, label: "Years experience" },
   { value: `${projects.length}+`, label: "Projects done" },
-  { value: "3", label: "Platforms" },
   { value: `${certificates.length}`, label: "Certifications" },
 ];
 

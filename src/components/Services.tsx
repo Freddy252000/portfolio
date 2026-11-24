@@ -55,7 +55,7 @@ const services: { Icon: LucideIcon; title: string; text: string; points: string[
     Icon: Smartphone,
     title: "Mobile apps",
     text: "Cross-platform iOS and Android apps with React Native that feel native, fast and secure.",
-    points: ["React Native & TypeScript", "End-to-end encryption", "Offline-first & push notifications"],
+    points: ["React Native CLI & Expo", "Real-time WebSocket & end-to-end encryption", "Offline-first with SQLite & Zustand"],
     art: <MiniPhone />,
     tint: "from-orange-500/20",
   },
@@ -63,7 +63,7 @@ const services: { Icon: LucideIcon; title: string; text: string; points: string[
     Icon: Globe,
     title: "Web applications",
     text: "Responsive, accessible web apps and sites, from dashboards to e-commerce.",
-    points: ["React, Vite & Tailwind", "Node.js & REST APIs", "Animations & 3D with Three.js"],
+    points: ["React.js, TypeScript & Tailwind CSS", "REST APIs & complex data flows", "Rendering & performance optimisation"],
     art: <MiniBrowser />,
     tint: "from-sky-500/20",
   },
@@ -79,7 +79,7 @@ const services: { Icon: LucideIcon; title: string; text: string; points: string[
 
 const stats = [
   { value: `${projects.length}`, label: "Projects built & designed" },
-  { value: "3", label: "Platforms: iOS, Android & Web" },
+  { value: "3+", label: "Years building apps" },
   { value: `${certificates.length}`, label: "Professional certifications" },
   { value: `${projects.filter((p) => p.category === "design").length}`, label: "Figma Community UI kits" },
 ];

@@ -16,6 +16,8 @@ const brand: Record<string, string> = {
   portfolio: "#fd6f00",
   tasks: "#14b8a6",
   store: "#f59e0b",
+  hrms: "#8b5cf6",
+  hotel: "#0ea5e9",
   "social-dashboard": "#6366f1",
   auralyx: "#ec4899",
 };
@@ -194,6 +196,64 @@ const TasksWeb = ({ c }: { c: string }) => (
               <Bar w="50%" c={ci === 2 ? "#86efac" : ci === 1 ? c : "#fcd34d"} h={3} />
             </div>
           ))}
+        </div>
+      ))}
+    </div>
+  </div>
+);
+
+const HrmsWeb = ({ c }: { c: string }) => (
+  <div className="flex h-full">
+    <div className="w-11 space-y-1.5 p-1.5" style={{ background: `${c}14` }}>
+      <div className="h-3 w-3 rounded" style={{ background: c }} />
+      {[0, 1, 2, 3].map((i) => <Bar key={i} w="80%" c={i === 1 ? c : `${c}40`} />)}
+    </div>
+    <div className="flex flex-1 flex-col gap-1.5 p-2">
+      <div className="text-[7px] font-extrabold">Employees</div>
+      <div className="grid grid-cols-3 gap-1">
+        {[
+          ["Headcount", "248"],
+          ["On leave", "12"],
+          ["New hires", "+9"],
+        ].map(([l, v]) => (
+          <div key={l} className="rounded bg-[#f8fafc] p-1">
+            <div className="text-[4px] text-[#94a3b8]">{l}</div>
+            <div className="text-[7px] font-extrabold" style={{ color: l === "New hires" ? c : undefined }}>{v}</div>
+          </div>
+        ))}
+      </div>
+      <div className="flex-1 space-y-1 rounded bg-[#f8fafc] p-1">
+        {["Engineering", "Design", "Support"].map((d, i) => (
+          <div key={d} className="flex items-center gap-1 rounded bg-white p-0.5 shadow-sm">
+            <div className="h-2.5 w-2.5 rounded-full" style={{ background: [c, "#f59e0b", "#10b981"][i] }} />
+            <div className="w-10 text-[5px] font-semibold">{d}</div>
+            <div className="h-1 flex-1 rounded-full bg-[#e2e8f0]">
+              <div className="h-1 rounded-full" style={{ width: `${[78, 45, 60][i]}%`, background: c }} />
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+);
+
+const HotelWeb = ({ c }: { c: string }) => (
+  <div className="flex h-full flex-col">
+    <div className="relative h-14 p-2 text-white" style={{ background: `linear-gradient(120deg, ${c}, #1e3a8a)` }}>
+      <div className="text-[8px] font-extrabold">Find your stay</div>
+      <div className="text-[5px] opacity-80">3 properties · Jaffna · Colombo · Kandy</div>
+    </div>
+    <div className="-mt-3 mx-2 flex items-center gap-1 rounded-md bg-white p-1 text-[5px] shadow-md">
+      <span className="flex-1 rounded bg-[#f1f5f9] px-1 py-0.5">📅 12 – 15 Dec</span>
+      <span className="flex-1 rounded bg-[#f1f5f9] px-1 py-0.5">👤 2 guests</span>
+      <span className="rounded px-1.5 py-0.5 font-bold text-white" style={{ background: c }}>Search</span>
+    </div>
+    <div className="grid flex-1 grid-cols-3 gap-1 p-2">
+      {["🏨", "🏝️", "🏔️"].map((e, i) => (
+        <div key={e} className="flex flex-col rounded-md bg-[#f0f9ff] p-1">
+          <div className="grid flex-1 place-items-center text-[13px]">{e}</div>
+          <div className="text-[5px] font-bold">{["City Hotel", "Beach Resort", "Hill Lodge"][i]}</div>
+          <div className="text-[5px]" style={{ color: i === 1 ? "#ef4444" : "#10b981" }}>{i === 1 ? "1 room left" : "✓ Available"}</div>
         </div>
       ))}
     </div>
@@ -382,6 +442,10 @@ export const ProjectArt = ({ project, large }: { project: Project; large?: boole
     );
   } else if (project.id === "tasks") {
     art = <Browser url="tasks.app/board"><TasksWeb c={c} /></Browser>;
+  } else if (project.id === "hrms") {
+    art = <Browser url="hrms.app/employees"><HrmsWeb c={c} /></Browser>;
+  } else if (project.id === "hotel") {
+    art = <Browser url="bookings.app/search"><HotelWeb c={c} /></Browser>;
   } else if (project.id === "store") {
     art = <Browser url="store.shop"><StoreWeb c={c} /></Browser>;
   } else if (project.id === "portfolio") {

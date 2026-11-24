@@ -43,7 +43,7 @@ const ProjectCard = ({ project, onOpen, large }: { project: Project; onOpen: () 
     >
       <Cover project={project} large={large} />
       <div className={`flex flex-1 flex-col px-2 pb-2 ${large ? "md:justify-center md:p-6" : ""}`}>
-        {project.id === "secure-chat" && large && <p className="mb-3 text-xs font-semibold uppercase tracking-[0.14em] text-accent">Currently building</p>}
+        {project.id === "secure-chat" && large && <p className="mb-3 text-xs font-semibold uppercase tracking-[0.14em] text-accent">Featured project</p>}
         <h3 className={`flex items-start justify-between gap-3 font-bold ${large ? "text-3xl md:text-4xl" : "text-xl"}`}>
           {project.title}
           <ArrowUpRight size={20} className="mt-1 shrink-0 text-muted transition-all group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-accent" />
