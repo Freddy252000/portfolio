@@ -1,113 +1,87 @@
-import React, { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
-import { Menu, X, Home, User, Briefcase, Mail } from 'lucide-react';
+import { AnimatePresence, motion, useScroll, useSpring } from "framer-motion";
+import { Moon, Send, Sun } from "lucide-react";
+import { useTheme } from "../hooks/useTheme";
+import { useActiveSection, useScrolledPast } from "../hooks/useActiveSection";
+import { scrollToSection } from "../utils/smoothScroll";
 
-const Header: React.FC = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
+// eslint-disable-next-line react-refresh/only-export-components
+export const navItems = [
+  { name: "Home", id: "home" },
+  { name: "Services", id: "services" },
+  { name: "About me", id: "about" },
+  { name: "Portfolio", id: "projects" },
+  { name: "Contact me", id: "contact" },
+];
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  const navItems = [
-    { name: 'Home', href: '#home', icon: Home },
-    { name: 'About', href: '#about', icon: User },
-    { name: 'Projects', href: '#projects', icon: Briefcase },
-    { name: 'Contact', href: '#contact', icon: Mail },
-  ];
-
-  const scrollToSection = (href: string) => {
-    const element = document.querySelector(href);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-    setIsMenuOpen(false);
-  };
+const Header = () => {
+  const scrolled = useScrolledPast(40);
+  // Watch every section so the highlight clears in ones the header doesn't list.
+  const active = useActiveSection(["home", "services", "workspace", "about", "projects", "journey", "certifications", "contact"]);
+  const { isDark, toggleTheme } = useTheme();
+  const { scrollYProgress } = useScroll();
+  const progress = useSpring(scrollYProgress, { stiffness: 200, damping: 30 });
 
   return (
-    <motion.header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled
-          ? 'bg-white/90 dark:bg-secondary-900/90 backdrop-blur-md shadow-lg'
-          : 'bg-transparent'
+    <header
+      className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
+        scrolled ? "border-b border-line/10 bg-bg/75 backdrop-blur-xl" : "border-b border-transparent"
       }`}
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.5 }}
     >
-      <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center py-4">
-          {/* Logo */}
-          <motion.div
-            className="text-2xl font-bold text-primary-600 dark:text-primary-400"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            <a href="#home" onClick={(e) => { e.preventDefault(); scrollToSection('#home'); }}>
-              Portfolio
-            </a>
-          </motion.div>
+      <motion.div className="absolute inset-x-0 bottom-0 h-[2px] origin-left bg-accent" style={{ scaleX: progress }} />
+      <nav className={`container-x flex items-center justify-between transition-all duration-300 ${scrolled ? "py-3" : "py-5"}`} aria-label="Main">
+        <a
+          href="#home"
+          onClick={(e) => {
+            e.preventDefault();
+            scrollToSection("#home");
+          }}
+          className="flex items-center gap-2.5 text-lg font-extrabold"
+          aria-label="Freddy Vincent, back to top"
+        >
+          <span className="grid h-9 w-9 place-items-center rounded-lg bg-gradient-to-br from-[#ff9a3d] to-[#e85d04] text-sm font-extrabold text-white">FV</span>
+          <span>
+            Freddy<span className="text-accent">.</span>
+          </span>
+        </a>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex space-x-8">
-            {navItems.map((item) => (
-              <motion.a
-                key={item.name}
-                href={item.href}
-                onClick={(e) => { e.preventDefault(); scrollToSection(item.href); }}
-                className="flex items-center space-x-2 text-secondary-700 dark:text-secondary-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors duration-200"
-                whileHover={{ y: -2 }}
-                whileTap={{ y: 0 }}
-              >
-                <item.icon size={18} />
-                <span>{item.name}</span>
-              </motion.a>
-            ))}
-          </div>
-
-          {/* Mobile Menu Button */}
-          <div className="md:hidden">
-            <motion.button
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="text-secondary-700 dark:text-secondary-300 hover:text-primary-600 dark:hover:text-primary-400"
-              whileTap={{ scale: 0.95 }}
+        <div className="hidden items-center gap-8 lg:flex">
+          {navItems.map((item) => (
+            <a
+              key={item.id}
+              href={`#${item.id}`}
+              onClick={(e) => {
+                e.preventDefault();
+                scrollToSection(`#${item.id}`);
+              }}
+              aria-current={active === item.id ? "true" : undefined}
+              className={`relative py-1 text-[15px] font-medium transition-colors ${active === item.id ? "text-accent" : "text-muted hover:text-ink"}`}
             >
-              {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-            </motion.button>
-          </div>
+              {item.name}
+              {active === item.id && (
+                <motion.span layoutId="nav-underline" className="absolute -bottom-1 left-0 right-0 h-0.5 rounded-full bg-accent" transition={{ type: "spring", stiffness: 400, damping: 34 }} />
+              )}
+            </a>
+          ))}
         </div>
 
-        {/* Mobile Navigation */}
-        {isMenuOpen && (
-          <motion.div
-            className="md:hidden bg-white dark:bg-secondary-800 rounded-lg shadow-lg mt-2 py-4"
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.2 }}
+        <div className="flex items-center gap-2">
+          <button
+            onClick={toggleTheme}
+            aria-label={isDark ? "Switch to light theme" : "Switch to dark theme"}
+            className="grid h-10 w-10 place-items-center rounded-lg text-muted transition-colors hover:bg-elevated hover:text-ink"
           >
-            {navItems.map((item) => (
-              <motion.a
-                key={item.name}
-                href={item.href}
-                onClick={(e) => { e.preventDefault(); scrollToSection(item.href); }}
-                className="flex items-center space-x-3 px-4 py-3 text-secondary-700 dark:text-secondary-300 hover:text-primary-600 dark:hover:text-primary-400 hover:bg-secondary-50 dark:hover:bg-secondary-700 transition-colors duration-200"
-                whileHover={{ x: 10 }}
-              >
-                <item.icon size={20} />
-                <span>{item.name}</span>
-              </motion.a>
-            ))}
-          </motion.div>
-        )}
+            <AnimatePresence mode="wait" initial={false}>
+              <motion.span key={isDark ? "moon" : "sun"} initial={{ rotate: -90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: 90, opacity: 0 }}>
+                {isDark ? <Moon size={18} /> : <Sun size={18} />}
+              </motion.span>
+            </AnimatePresence>
+          </button>
+          <button onClick={() => scrollToSection("#contact")} className="btn-accent !px-5 !py-2.5">
+            <Send size={15} /> Hire Me
+          </button>
+        </div>
       </nav>
-    </motion.header>
+    </header>
   );
 };
 

@@ -1,64 +1,115 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap");
+@import "lenis/dist/lenis.css";
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Custom CSS Variables */
+/* ── Design tokens (RGB triplets so Tailwind can apply alpha) ───────── */
 :root {
-  --primary-50: #eff6ff;
-  --primary-100: #dbeafe;
-  --primary-200: #bfdbfe;
-  --primary-300: #93c5fd;
-  --primary-400: #60a5fa;
-  --primary-500: #3b82f6;
-  --primary-600: #2563eb;
-  --primary-700: #1d4ed8;
-  --primary-800: #1e40af;
-  --primary-900: #1e3a8a;
+  --bg: 250 248 245;
+  --surface: 255 255 255;
+  --elevated: 242 238 232;
+  --line: 24 22 20;
+  --ink: 22 20 18;
+  --muted: 104 98 92;
+  --accent: 234 88 12;
+  --accent2: 217 119 6;
+  --danger: 210 50 60;
+  color-scheme: light;
 }
 
-body {
-  font-family: "Inter", system-ui, sans-serif;
-  font-feature-settings: "rlig" 1, "calt" 1;
+.dark {
+  --bg: 15 15 17;
+  --surface: 24 24 27;
+  --elevated: 36 36 40;
+  --line: 255 255 255;
+  --ink: 245 244 242;
+  --muted: 163 160 156;
+  --accent: 253 111 0;
+  --accent2: 255 167 38;
+  --danger: 255 99 112;
+  color-scheme: dark;
 }
 
-/* Custom Components */
-.btn-primary {
-  @apply bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-lg transition-colors duration-200;
+@layer base {
+  html {
+    -webkit-tap-highlight-color: transparent;
+  }
+  body {
+    @apply bg-bg text-ink font-sans antialiased;
+  }
+  h1, h2, h3, h4 {
+    @apply font-display tracking-tight;
+  }
+  ::selection {
+    @apply bg-accent text-white;
+  }
+  :focus-visible {
+    @apply outline-none ring-2 ring-accent ring-offset-2 ring-offset-bg;
+  }
 }
 
-.btn-secondary {
-  @apply bg-gray-200 hover:bg-gray-300 text-gray-800 font-medium py-2 px-4 rounded-lg transition-colors duration-200;
+@layer components {
+  .container-x {
+    @apply mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8;
+  }
+  .section {
+    @apply relative py-24 md:py-32;
+  }
+  .panel {
+    @apply rounded-2xl border border-line/10 bg-surface/70 backdrop-blur-sm;
+  }
+  .chip {
+    @apply inline-flex items-center rounded-full border border-line/10 bg-elevated/60 px-3 py-1 text-xs font-medium text-muted;
+  }
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg px-6 py-3 text-sm font-semibold transition-all duration-200 disabled:cursor-not-allowed disabled:opacity-50;
+  }
+  .btn-accent {
+    @apply btn bg-accent text-white shadow-[0_10px_30px_-10px_rgb(var(--accent)/0.8)] hover:-translate-y-0.5 hover:shadow-[0_16px_40px_-10px_rgb(var(--accent)/0.9)];
+  }
+  .btn-ghost {
+    @apply btn border border-line/15 text-ink hover:border-accent/60 hover:text-accent;
+  }
+  .field {
+    @apply w-full rounded-xl border border-line/10 bg-bg/60 px-4 py-3 text-sm text-ink placeholder:text-muted/60 transition-colors focus:border-accent/70 focus:outline-none focus:ring-0;
+  }
+  .grid-bg {
+    background-image:
+      linear-gradient(rgb(var(--line) / 0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgb(var(--line) / 0.05) 1px, transparent 1px);
+    background-size: 48px 48px;
+  }
+  .dot-bg {
+    background-image: radial-gradient(rgb(var(--line) / 0.12) 1px, transparent 1px);
+    background-size: 16px 16px;
+  }
 }
 
-.card {
-  @apply bg-white dark:bg-gray-800 rounded-xl shadow-lg border border-gray-200 dark:border-gray-700;
+/* Rotating holographic border used on certificate cards */
+@property --angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
 }
+.holo { animation: holo 8s linear infinite; }
+@keyframes holo { to { --angle: 360deg; } }
 
-.section-padding {
-  @apply py-16 px-4 sm:px-6 lg:px-8;
-}
-
-/* Smooth scrolling */
-html {
-  scroll-behavior: smooth;
-}
-
-/* Custom scrollbar */
-::-webkit-scrollbar {
-  width: 8px;
-}
-
-::-webkit-scrollbar-track {
-  background: #f1f5f9;
-}
-
+/* Scrollbar */
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: rgb(var(--bg)); }
 ::-webkit-scrollbar-thumb {
-  background: #94a3b8;
-  border-radius: 4px;
+  background: rgb(var(--line) / 0.15);
+  border-radius: 10px;
+  border: 2px solid rgb(var(--bg));
 }
+::-webkit-scrollbar-thumb:hover { background: rgb(var(--accent) / 0.6); }
 
-::-webkit-scrollbar-thumb:hover {
-  background: #64748b;
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }

@@ -1,18 +1,22 @@
-import React from 'react';
-import Header from './Header';
-import Footer from './Footer';
+import { useEffect } from "react";
+import type { ReactNode } from "react";
+import Header from "./Header";
+import Footer from "./Footer";
+import { initSmoothScroll } from "../utils/smoothScroll";
 
-interface LayoutProps {
-  children: React.ReactNode;
-}
+const Layout = ({ children }: { children: ReactNode }) => {
+  useEffect(() => initSmoothScroll(), []);
 
-const Layout: React.FC<LayoutProps> = ({ children }) => {
   return (
-    <div className="min-h-screen bg-white dark:bg-secondary-900 text-secondary-900 dark:text-white">
+    <div className="relative min-h-screen overflow-x-clip bg-bg text-ink">
+      <a
+        href="#main"
+        className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-full focus:bg-accent focus:px-4 focus:py-2 focus:text-white"
+      >
+        Skip to content
+      </a>
       <Header />
-      <main className="pt-20">
-        {children}
-      </main>
+      <main id="main">{children}</main>
       <Footer />
     </div>
   );
